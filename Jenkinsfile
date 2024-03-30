@@ -13,8 +13,8 @@ pipeline {
       steps {
         script {
           docker.withRegistry('', 'docker-hub-credentials') {
-            dockerImage.push("latest")
-            dockerImage.push("${env.BUILD_ID}")
+            dockerImage.push("faizan1ahmed/mlops_assignment_1:latest")
+            dockerImage.push("faizan1ahmed/mlops_assignment_1:${env.BUILD_ID}")
           }
         }
       }
