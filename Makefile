@@ -9,4 +9,7 @@ docker-run:
 
 flake8:
 		flake8 --ignore=E501,F401 .
+
+test:
+		python -m unittest test.py
 	
