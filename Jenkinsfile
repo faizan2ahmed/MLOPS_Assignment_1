@@ -5,7 +5,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         script {
-          dockerImage = docker.build("mlops_assignment_1:${env.BUILD_ID}")
+          dockerImage = docker.build("faizan1ahmed/mlops_assignment_1")
         }
       }
     }
@@ -13,8 +13,8 @@ pipeline {
       steps {
         script {
           docker.withRegistry('', 'docker-hub-credentials') {
-            dockerImage.push("faizan1ahmed/mlops_assignment_1:latest")
-            dockerImage.push("faizan1ahmed/mlops_assignment_1:${env.BUILD_ID}")
+            dockerImage.push("latest")
+            dockerImage.push("${env.BUILD_ID}")
           }
         }
       }
